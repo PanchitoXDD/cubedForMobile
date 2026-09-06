@@ -1,0 +1,14 @@
+{
+  "fullscreen": true,
+  "windowed_size": [
+    1100,
+    700
+  ],
+  "menu_music": "sandbox.ogg",
+  "game_music": "BY_MODE",
+  "music_volume": 0.75,
+  "sound_volume": 0.7,
+  "screen_shake": true,
+  "impact_flash": false,
+  "graphics": "Meduim"
+}
