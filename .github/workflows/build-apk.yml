@@ -1,0 +1,31 @@
+name: Build CUBED APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout CUBED
+        uses: actions/checkout@v4
+
+      - name: Build APK
+        id: buildozer
+        uses: ArtemSBulgakov/buildozer-action@v1
+        with:
+          command: buildozer -v android debug
+          repository_root: .
+          workdir: .
+          buildozer_version: master
+
+      - name: Upload CUBED APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: CUBED-APK
+          path: ${{ steps.buildozer.outputs.filename }}
+          if-no-files-found: error
